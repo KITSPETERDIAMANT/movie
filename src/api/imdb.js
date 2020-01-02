@@ -1,4 +1,3 @@
-import unirest from 'unirest'
 import axios from 'axios'
 
 export default axios.create({
