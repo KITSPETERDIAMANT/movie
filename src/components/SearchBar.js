@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
       text: event.target.value
     })
 
-    console.log(this.state.text)
+    console.log('######### ' + this.state.text)
   }
 
   onSubmitForm = event => {
