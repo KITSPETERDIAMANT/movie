@@ -25,7 +25,7 @@ class App extends React.Component {
       params: { s: text }
     })
 
-    if (response.data.Search != undefined) {
+    if (response.data.Search !== undefined) {
       console.log(response)
       this.setState({ data: response.data.Search })
       this.setState({ message: 'van talalat' })

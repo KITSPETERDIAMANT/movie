@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 
 class ImageCard extends Component {
+  state = {
+    enabled: true
+  }
+
   render () {
-    const { Title, Poster, image } = this.props.movie
+    const { Title, Poster } = this.props.movie
 
     return (
       <div>
@@ -10,7 +14,11 @@ class ImageCard extends Component {
         <img alt={Title} src={Poster} />
         <button
           className='ui primary button'
-          onClick={() => this.props.onClick(Title)}
+          onClick={() => {
+            this.props.onClick(Title)
+            this.setState({ enabled: false })
+          }}
+          disabled={!this.state.enabled}
         >
           ADD TO FAVOURITES{' '}
         </button>
