@@ -10,7 +10,10 @@ class App extends React.Component {
   }
 
   clicked = title => {
-    return console.log('CLICKED ' + title)
+    console.log(this.state)
+    console.log('CLICKED ' + title)
+    this.setState({ favourites: title })
+    console.log(this.state)
   }
 
   onSubmitForm = async text => {
