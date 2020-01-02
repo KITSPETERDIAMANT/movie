@@ -6,7 +6,8 @@ import ListComponent from './List'
 class App extends React.Component {
   state = {
     data: [],
-    favourites: []
+    favourites: [],
+    message: ''
   }
 
   clicked = title => {
@@ -20,15 +21,23 @@ class App extends React.Component {
     const response = await imdb.get('', {
       params: { s: text }
     })
-    console.log(response)
-    this.setState({ data: response.data.Search })
+
+    if (response.data.Search != undefined) {
+      console.log(response)
+      this.setState({ data: response.data.Search })
+      this.setState({ message: 'van talalat' })
+    } else {
+      this.setState({ data: [] })
+      this.setState({ message: 'nincs talalat' })
+    }
   }
 
   render () {
     return (
       <div className='ui container' style={{ marginTop: '10px' }}>
         <SearchBar onSubmit={this.onSubmitForm} />
-        show: {this.state.data.length}
+        <li>show: {this.state.data.length}</li>
+        <li>message: {this.state.message}</li>
         <ListComponent data={this.state.data} onClick={this.clicked} />
       </div>
     )
