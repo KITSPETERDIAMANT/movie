@@ -9,10 +9,11 @@ class App extends React.Component {
   }
 
   onSubmitForm = async text => {
-    const response = await imdb.get('/search/photos', {
-      params: { query: String }
+    const response = await imdb.get('', {
+      params: { s: text }
     })
-    this.setState({ images: response.data.results })
+    console.log(response)
+    this.setState({ images: response.data.Search })
   }
 
   render () {
