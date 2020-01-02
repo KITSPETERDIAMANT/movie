@@ -7,3 +7,42 @@
 .image-list img {
   width: 250px;
 }
+
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Make the image responsive */
+.container .kep {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .buttonka {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .buttonka:hover {
+  background-color: black;
+}
+
+.container .buttonka .kep2 {
+  width: 80px;
+  height: 50px;
+}
