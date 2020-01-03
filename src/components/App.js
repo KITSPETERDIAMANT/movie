@@ -11,15 +11,6 @@ class App extends React.Component {
     message: ''
   }
 
-  clicked = title => {
-    console.log(this.state)
-    console.log('CLICKED ' + title)
-    this.setState({ favourites: [...this.state.favourites, title] })
-
-    // this.setState({ favourites: title })
-    console.log(this.state)
-  }
-
   onSubmitForm = async text => {
     const response = await imdb.get('', {
       params: { s: text }
@@ -28,16 +19,16 @@ class App extends React.Component {
     if (response.data.Search !== undefined) {
       console.log(response)
       this.setState({ data: response.data.Search })
-      this.setState({ message: 'van talalat' })
+      this.setState({ message: 'Results: ' })
     } else {
       this.setState({ data: [] })
-      this.setState({ message: 'nincs talalat' })
+      this.setState({ message: 'No title were found' })
     }
   }
 
   render () {
     return (
-      <div className='ui container' style={{ marginTop: '10px' }}>
+      <div className='ui container'>
         <SearchBar onSubmit={this.onSubmitForm} />
         <li>show: {this.state.data.length}</li>
         <li>message: {this.state.message}</li>

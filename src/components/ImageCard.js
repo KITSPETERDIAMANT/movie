@@ -1,27 +1,37 @@
 import React, { Component } from 'react'
+import { Card, Icon, Image, Button, Label } from 'semantic-ui-react'
 
 class ImageCard extends Component {
   state = {
-    enabled: true
+    enabled: true,
+    clickedtimes: 0
   }
-
   render () {
     const { Title, Poster } = this.props.movie
-
     return (
       <div>
-        <h1> {Title} </h1>
-        <img alt={Title} src={Poster} />
-        <button
-          className='ui primary button'
-          onClick={() => {
-            this.props.onClick(Title)
-            this.setState({ enabled: false })
-          }}
-          disabled={!this.state.enabled}
-        >
-          ADD TO FAVOURITES{' '}
-        </button>
+        <Card>
+          <Image src={Poster} ui={false} size='large' className='image' />
+          <Card.Content extra>
+            <Button
+              as='div'
+              labelPosition='right'
+              onClick={() => {
+                this.setState({ enabled: false })
+                this.setState({ clickedtimes: this.state.clickedtimes + 1 })
+              }}
+              disabled={!this.state.enabled}
+            >
+              <Button icon>
+                <Icon name='heart' />
+                Like
+              </Button>
+              <Label as='a' basic pointing='left'>
+                {this.state.clickedtimes}
+              </Label>
+            </Button>
+          </Card.Content>
+        </Card>
       </div>
     )
   }
