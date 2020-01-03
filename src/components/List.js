@@ -4,7 +4,11 @@ import ImageCard from './ImageCard'
 
 const ListComponent = props => {
   const movies = props.data.map(movie => {
-    return <ImageCard key={movie.id} movie={movie} onClick={props.onClick} />
+    console.log(movie.imdbID)
+
+    return (
+      <ImageCard key={movie.imdbID} movie={movie} onClick={props.onClick} />
+    )
   })
   return <div className='image-list'> {movies} </div>
 }
