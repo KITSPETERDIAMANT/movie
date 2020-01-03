@@ -7,7 +7,7 @@ class ImageCard extends Component {
     clickedtimes: 0
   }
   render () {
-    const { Title, Poster } = this.props.movie
+    const { Poster } = this.props.movie
     return (
       <div>
         <Card>
